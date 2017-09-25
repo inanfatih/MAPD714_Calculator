@@ -9,67 +9,106 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var numberOnScreen:Double = 0
+    var previousNumber:Double = 0
+    var calculating = false
+    var operation = 0
+    
+    @IBOutlet weak var result: UILabel!
+    
+    @IBAction func numbers(_ sender: UIButton)
+    {
+        if calculating == true
+        {
+            result.text = String(sender.tag)
+            numberOnScreen = Double(result.text!)!
+            calculating = false
+        }
+        else
+        {
+            result.text = result.text! + String(sender.tag)
+            numberOnScreen = Double(result.text!)!
+        }
+        
+        
+    }
+    
+    
+    @IBAction func operators(_ sender: UIButton)
+    {
+        if result.text != "" && sender.tag != 100 && sender.tag != 99
+        {
+            previousNumber = Double(result.text!)!
+            
+            if sender.tag == 11 // add
+             {
+                result.text = "+"
+                
+             }
+             else if sender.tag == 12 // subtract
+             {
+                result.text = "+"
 
+             }
+             else if sender.tag == 13 // multiply
+             {
+                result.text = "+"
+
+             }
+             else if sender.tag == 14 // divide
+             {
+                result.text = "+"
+              }
+            calculating = true
+            operation = sender.tag
+
+        }
+        else if sender.tag == 100
+        {
+            if operation == 11
+            {
+                result.text = String(previousNumber + numberOnScreen)
+            }
+            
+            if operation == 12
+            {
+                result.text = String(previousNumber - numberOnScreen)
+            }
+            if operation == 13
+            {
+                result.text = String(previousNumber + numberOnScreen)
+
+            }
+            if operation == 14
+            {
+                result.text = String(previousNumber+numberOnScreen)
+            }
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
-    
-    @IBAction func zero(_ sender: UIButton) {
-    }
-    @IBAction func one(_ sender: UIButton) {
-    }
-    
-    @IBAction func two(_ sender: UIButton) {
+        
     }
 
-    @IBAction func three(_ sender: UIButton) {
-    }
-    
-    @IBAction func four(_ sender: UIButton) {
-    }
-    
-    @IBAction func five(_ sender: UIButton) {
-    }
-    
-    @IBAction func six(_ sender: UIButton) {
-    }
-    
-    @IBAction func seven(_ sender: UIButton) {
-    }
-    
-    @IBAction func eight(_ sender: UIButton) {
-    }
-    
-    @IBAction func nine(_ sender: UIButton) {
-    }
-    
-    @IBAction func dot(_ sender: UIButton) {
-    }
-    
-    @IBAction func equal(_ sender: UIButton) {
-    }
-    
-    @IBAction func add(_ sender: UIButton) {
-    }
-    
-    @IBAction func subtract(_ sender: UIButton) {
-    }
-    
-    @IBAction func multiply(_ sender: UIButton) {
-    }
-    
-    @IBAction func divide(_ sender: UIButton) {
-    }
-    
-    @IBAction func minus(_ sender: UIButton) {
-    }
-    
-    @IBAction func clear(_ sender: UIButton) {
-    }
-    
-    
-    @IBOutlet weak var result: UILabel!
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
