@@ -30,8 +30,6 @@ class ViewController: UIViewController {
             result.text = result.text! + String(sender.tag)
             numberOnScreen = Double(result.text!)!
         }
-        
-        
     }
     
     
@@ -77,14 +75,20 @@ class ViewController: UIViewController {
             }
             if operation == 13
             {
-                result.text = String(previousNumber + numberOnScreen)
+                result.text = String(previousNumber * numberOnScreen)
 
             }
             if operation == 14
             {
-                result.text = String(previousNumber+numberOnScreen)
+                result.text = String(previousNumber / numberOnScreen)
             }
-            
+        }
+        else if sender.tag == 99
+        {
+            result.text = "0"
+            previousNumber = 0
+            numberOnScreen = 0
+            operation = 0
         }
     }
     
