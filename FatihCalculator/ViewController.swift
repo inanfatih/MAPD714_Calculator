@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var calculating = false
     var operation = 0
     
+    
     @IBOutlet weak var result: UILabel!
     
     @IBAction func numbers(_ sender: UIButton)
@@ -25,11 +26,15 @@ class ViewController: UIViewController {
             numberOnScreen = Double(result.text!)!
             calculating = false
         }
-        else
+      
+         else
         {
             result.text = result.text! + String(sender.tag)
             numberOnScreen = Double(result.text!)!
         }
+        
+        
+        
     }
     
     
@@ -75,28 +80,17 @@ class ViewController: UIViewController {
             }
             if operation == 13
             {
-                result.text = String(previousNumber * numberOnScreen)
+                result.text = String(previousNumber + numberOnScreen)
 
             }
             if operation == 14
             {
-                result.text = String(previousNumber / numberOnScreen)
+                result.text = String(previousNumber+numberOnScreen)
             }
-        }
-        else if sender.tag == 99
-        {
-            result.text = "0"
-            previousNumber = 0
-            numberOnScreen = 0
-            operation = 0
+            
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-        
     }
 
 
